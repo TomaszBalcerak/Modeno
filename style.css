@@ -445,10 +445,12 @@ h4{text-align:center;margin:30px 0 20px 0px;color:#444; font-size:20px;}
 .main-timeline2{padding:30px 10px 0px 10px;overflow:hidden;position:relative}
 .main-timeline2:before{content:"";width:7px;height:100%;background:#084772;margin:0 auto;position:absolute;top:80px;left:0;right:0}
 .main-timeline2 .timeline{width:50%;float:left;padding:20px 60px;border-top:7px solid #084772;border-right:7px solid #084772;border-radius:0 30px 0 0;position:relative;right:-3.5px}
-.main-timeline2 .icon{display:block;width:50px;height:50px;line-height:50px;border-radius:50%;background:#e84c47;border:1px solid #fff;text-align:center;font-size:25px;color:#fff;box-shadow:0 0 0 2px #e84c47;position:absolute;top:-30px;left:0}
-.main-timeline2 .timeline-content{display:block;padding:30px 10px 10px;border-radius:20px;background:#e84c47;color:#fff;position:relative;}
+.main-timeline2 .icon{display:block;width:50px;height:50px;line-height:50px;border-radius:50%;background:#ff9e09;border:1px solid #fff;text-align:center;font-size:25px;color:#fff;box-shadow:0 0 0 2px #ff9e09;position:absolute;top:-30px;left:0}
+.main-timeline2 .timeline-content{display:block;padding:30px 10px 10px;border-radius:20px;background:#4bd9bf;color:#fff;position:relative;}
+.main-timeline2 .timeline-content:nth-child(even){background:#ff9e09;}
 .main-timeline2 .timeline-content:hover{text-decoration:none;color:#fff}
-.main-timeline2 .timeline-content:after,.main-timeline2 .timeline-content:before{content:"";display:block;width:10px;height:50px;border-radius:10px;background:#e84c47;border:1px solid #fff;position:absolute;top:-35px;left:50px}
+.main-timeline2 .timeline-content:after,.main-timeline2 .timeline-content:before{content:"";display:block;width:10px;height:50px;border-radius:10px;background:#ff9e09;border:1px solid #fff;position:absolute;top:-35px;left:50px}
+
 .main-timeline2 .timeline-content:after{left:auto;right:50px}
 .main-timeline2 .title{font-size:24px;margin:0px 10px 10px 10px}
 .main-timeline2 .description{font-size:15px;letter-spacing:1px;margin:0 0 5px}
@@ -459,19 +461,61 @@ h4{text-align:center;margin:30px 0 20px 0px;color:#444; font-size:20px;}
 .main-timeline2 .timeline:nth-child(even){margin-bottom:80px}
 .main-timeline2 .timeline:first-child,.main-timeline2 .timeline:last-child:nth-child(even){margin:0 0 30px}
 .main-timeline2 .timeline:nth-child(2n) .icon,.main-timeline2 .timeline:nth-child(2n) .timeline-content,.main-timeline2 .timeline:nth-child(2n) .timeline-content:after,.main-timeline2 .timeline:nth-child(2n) .timeline-content:before{background:#4bd9bf}
-.main-timeline2 .timeline:nth-child(3n) .icon,.main-timeline2 .timeline:nth-child(3n) .timeline-content,.main-timeline2 .timeline:nth-child(3n) .timeline-content:after,.main-timeline2 .timeline:nth-child(3n) .timeline-content:before{background:#ff9e09}
-.main-timeline2 .timeline:nth-child(3n) .icon{box-shadow:0 0 0 2px #ff9e09}
-.main-timeline2 .timeline:nth-child(4n) .icon,.main-timeline2 .timeline:nth-child(4n) .timeline-content,.main-timeline2 .timeline:nth-child(4n) .timeline-content:after,.main-timeline2 .timeline:nth-child(4n) .timeline-content:before{background:#3ebae7}
-.main-timeline2 .timeline:nth-child(4n) .icon{box-shadow:0 0 0 2px #3ebae7}
 @media only screen and (max-width:767px){.main-timeline2:before{left:10px;right:auto}
 .main-timeline2 .timeline,.main-timeline2 .timeline:nth-child(even),.main-timeline2 .timeline:nth-child(odd){width:100%;float:none;padding:20px 30px;margin:0 0 30px;border-right:none;border-left:7px solid #084772;border-radius:30px 0 0;right:auto;left:0}
 .main-timeline2 .icon{left:auto;right:0}
 }
 @media only screen and (max-width:480px){.main-timeline2 .title{font-size:18px}
 }
+.icon img{
+	opacity:0;
+}
+.icon img.appear{
+	animation:appear 2.5s forwards;
+}
+@keyframes appear{
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
 /*END TIMELINE*/
 
 /*InvestmentPreparation section*/
+.archback1{
+	position:relative;
+	overflow: hidden;
+}
+.archback1:after{
+	content:'';
+	width:100vw;
+	height:100%;
+	position:absolute;
+	top:30vh;
+	left:0;
+	background-image: url(img/galery/architecture.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: left;
+	opacity:0.2;
+	z-index:-1;
+}
+.archback2{
+	position:relative;
+	overflow: hidden;
+}
+.archback2:after{
+	content:'';
+	width:100vw;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background-image: url(img/galery/architecture.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: right;
+	opacity:0.2;
+	z-index:-1;
+}
 #InvestmentPreparation{
 	display:flex;
 	justify-content: center;
@@ -487,12 +531,12 @@ h4{text-align:center;margin:30px 0 20px 0px;color:#444; font-size:20px;}
 	margin-top: 20px;
 	position:relative;
 }
-#InvestmentPreparation:after{
+/*#InvestmentPreparation:after{
 	content:"";
 	width:120vw;
-	height:100%;
+	height:100%;*/
 	/*clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
-	clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);*/
+	clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);*//*
 	position:absolute;
 	top:50vw;
 	left:-50px;
@@ -501,7 +545,7 @@ h4{text-align:center;margin:30px 0 20px 0px;color:#444; font-size:20px;}
 	background-image: url(img/galery/architecture.jpg);
 	background-repeat: no-repeat;
 	background-size:;
-}
+}*/
 .rentaldescribe{
 	margin:20px 0 0 0;
 	max-width:80vw;
@@ -609,6 +653,7 @@ ul .offerlist:last-child{
 	display:flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	overflow: hidden;
 }
 /*InvestmentSupervision section*/
 #InvestmentSupervision{
@@ -619,18 +664,46 @@ ul .offerlist:last-child{
 #accordion{
 	width:90vw;
 	margin-top: 20px;
+	position:relative;
+	border:1px solid rgba(0,0,0,.125)
+}
+#accordion:after{
+	content:"";
+	position:absolute;
+	top:0;
+	left:0px;
+	width:100%;
+	height:100%;
+	padding:1px;
+	background-image: url(img/galery/photo545.jpeg);
+	background-size: cover;
+	background-position: center;
+	z-index:0;
+}
+.card-header{
+	z-index:1;
+	padding:0;
+	background-color: #ebeced;
+}
+.card{
+	background-color: rgba(256,256,256,0.8);
+	z-index:1;
+	border:none;
+	border-radius: 0px;
 }
 #InvestmentSupervision .btn{
 	width:100%;
-	color:black;
 }
-.btn-link{
+.mb-0 .btn-link{
 	position:relative;
+	width:100%;
+	color:black;
+	border-radius:0px;
 }
 .fa{
 	position: absolute;
     top: 50%;
-    right: 0px;
+    right: 20px;
     transform: translate(-50%, -50%);
 }
 /*InvestmentCoordination section*/
@@ -667,6 +740,10 @@ ul .offerlist:last-child{
 	justify-content: center;
 	flex-wrap: wrap;
 }
+.TechnicalOpinionImg{
+	width:80vw;
+	height:60vh;
+}
 /*TechnicalConsultancy section*/
 #TechnicalConsultancy{
 	display:flex;
@@ -685,6 +762,7 @@ ul .offerlist:last-child{
 }
 .third{
 	width:100%;
+	position:relative;
 }
 #nanogallery2{
 	margin:0 20px;
@@ -769,14 +847,51 @@ footer span, footer p{
 footer > a > p{
 	color:white;
 }
-/*MEDIA QUERIES*/
+.socdivtom{
+	display:inline-block;
+	width:20px;
+	height:20px;
+	margin-left:10px;
+}
 
+
+/*MEDIA QUERIES*/
+@media all and (min-width:600px){
+/*InvestmentPreparation section*/
+.archback{
+	position:relative;
+	overflow: hidden;
+}
+.archback:after{
+	content:"";
+	width:100vw;
+	height:100%;
+	position:absolute;
+	top:15vh;
+	left:0;
+	background-image: url(img/galery/architecture.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: left;
+	opacity:0.2;
+	z-index:-1;
+}
+.archback1:after{
+	display:none;
+}
+.archback2:after{
+	display:none;
+}
+}
 @media all and (min-width:768px){
 .logo{
-	width:20vw;
+	width:18vw;
 }
 #navbar-example{
 	width:50vw;
+}
+a.btn.btn-primary{
+	width:30vw;
 }
 .rentaldescribe{
 	width:70vw;
@@ -796,15 +911,32 @@ footer > a > p{
 }
 @media all and (min-width:992px){
 .logo{
-	width:16vw;
+	width:14vw;
 }
 #navbar-example{
 	width:35vw;
 }
+a.btn.btn-primary{
+	width:20vw;
+}
+/*InvestmentPreparation section*/
+#InvestmentPreparation{
+	overflow: visible;
+}
+/*#InvestmentPreparation:after{
+	content:"";
+	width:100vw;
+	height:	100vh;
+	position:absolute;
+	top:30vh;
+	left:0;
+	background-size:cover;
+	opacity:0.2;
+}*/
 }
 @media all and (min-width:1200px){
 .logo{
-	width:14vw;
+	width:12vw;
 }
 .navbar-expand-xl .navbar-collapse {
 	justify-content: center;
@@ -852,11 +984,22 @@ footer > a > p{
 	transition:all 0s;
 }
 .descriptionList{
-	justify-content: center;
+	display:flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top:15px;
 }
 .card-columns{
 	column-count:2;
 	width:100%;
+}
+.card-columns2{
+	column-count:1;
+	width:50%;
+}
+.TechnicalOpinionImg{
+	width:40%;
+	height:100%;
 }
 .btn{
 	width:20vw;
@@ -883,11 +1026,5 @@ a.nav-link{
 .bg-text {
     transform: translate(-50%,-25%);
  }
-.socdiv{
-	top:40vh;
-}
-.googlemapsyes{
-	height:65vh;
-}
 }
 

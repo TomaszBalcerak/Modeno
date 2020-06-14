@@ -130,6 +130,7 @@ const section2 = document.querySelectorAll(".text");
 const sectiontest = document.querySelectorAll(".test");
 const section3 = document.querySelectorAll(".offerlist");
 const section4 = document.querySelectorAll(".heading");
+const section5 = document.querySelectorAll(".icon img");
 
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
@@ -173,6 +174,14 @@ function isElementInViewport(el) {
     }
   }
 
+  function callbackFunc5() {
+    for (var i = 0; i < section5.length; i++) {
+      if (isElementInViewport(section5[i])) {
+        section5[i].classList.add("appear");
+      }
+    }
+  }
+
   window.addEventListener("load", callbackFunc,);
   window.addEventListener("resize", callbackFunc,);
   window.addEventListener("scroll", callbackFunc,);
@@ -188,4 +197,8 @@ function isElementInViewport(el) {
   window.addEventListener("load", callbackFunc4,);
   window.addEventListener("resize", callbackFunc4,);
   window.addEventListener("scroll", callbackFunc4,);
+
+  window.addEventListener("load", callbackFunc5,);
+  window.addEventListener("resize", callbackFunc5,);
+  window.addEventListener("scroll", callbackFunc5,);
 
