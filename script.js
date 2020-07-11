@@ -23,6 +23,17 @@ $(document).ready(function () {
 
     $('.animated-icon2').toggleClass('open');
     $('#navbar-example').removeClass('collapse');
+    if ($('.animated-icon2').hasClass("open")){
+      $('.animated-icon2 span').css("background-color","#084772");
+      $('.animated-icon2 span').css("transition","background-color 1.5s, transform 0.5s")
+    }
+      else if((document.body.scrollTop > 80 || document.documentElement.scrollTop > 80)&(!$('.animated-icon2').hasClass("open"))){
+        $('.animated-icon2 span').css("background-color","#084772")
+      }
+      else if((document.body.scrollTop < 80 || document.documentElement.scrollTop < 80)&(!$('.animated-icon2').hasClass("open"))){
+        $('.animated-icon2 span').css("background-color","white")
+      }
+      
   });
 });
 
@@ -61,12 +72,22 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){
     document.querySelector(".navbar").style.height = "16vh";
-    document.querySelector(".logo").style.height = "9vh";
-    document.querySelector("#navbar-example").style.top="16vh"
+    //document.querySelector("#navbar-example").style.top="16vh";
+    document.querySelector(".navbar").style.backgroundColor="white";
+    let che = document.querySelectorAll(".animated-icon2 span");
+    [...che].forEach((chee)=>{chee.style.backgroundColor="#084772"});
+    document.querySelector(".logo").style.left="5vw";
+    document.querySelector(".logo").style.transform="translate(0,-50%)";
+    document.querySelector(".logo").style.transition="all 0.3s";
   } else {
-    document.querySelector(".navbar").style.height = "22vh";
-    document.querySelector(".logo").style.height = "11vh";
-    document.querySelector("#navbar-example").style.top="22vh"
+    document.querySelector(".navbar").style.height = "20vh";
+    //document.querySelector("#navbar-example").style.top="20vh";
+    document.querySelector(".navbar").style.backgroundColor="transparent";
+    let che = document.querySelectorAll(".animated-icon2 span");
+    [...che].forEach((chee)=>{chee.style.backgroundColor="white"});
+    document.querySelector(".logo").style.left="50vw";
+    document.querySelector(".logo").style.transform="translate(-50%,-50%)";
+    document.querySelector(".logo").style.transition="all 0.3s";
   }
 }
 
@@ -83,42 +104,52 @@ $doc.on("scroll", function(){
   const HomeHeight = $Home.outerHeight();//wysokość z borderem i paddingiem//
 
   $Home.css({
-  'opacity' : 1 - scrollPos/HomeHeight,//działanie pozwalające utrzymywać wartość opacity jako zmienną wyliczaną z pozycji scrollTop-outerHeight-mega fajny efekt!!//
   'filter': 'grayscale(' +scrollPos/HomeHeight +')'//tez korzysta ze zmiennej wyliczającej pozycję. Dwójkę daliśmy by szybciej efekt szarości zachodzil//
   })
   //zmiana przejrzystości headera gdy zaczniemy scrollować//
 })
 
-//moreInfo button changeContext
+//moreInfo button mechanism changeContext and scroll
 const moreInfo = document.querySelector('.btn1');
 moreInfo.addEventListener("click", function(){
   if (
   moreInfo.innerHTML.length >9
-  ){moreInfo.innerHTML="Zwiń"}
-    else {moreInfo.innerHTML="Więcej o nas"}
+  ){moreInfo.innerHTML="Zwiń";
+    setTimeout(function(){
+    const checky= $('.btn1').offset().top;
+    const checkyMargin = checky-150;
+    window.scrollTo(0,checkyMargin);
+}, 300);  
+}
+  else {moreInfo.innerHTML="Więcej o nas"}
 })
 
-//moreInfo button changeContext
 const moreInfo2 = document.querySelector('.btn2');
 moreInfo2.addEventListener("click", function(){
   if (
   moreInfo2.innerHTML.length >5
-  ){moreInfo2.innerHTML="Zwiń"}
-    else {moreInfo2.innerHTML="Więcej"}
+  ){moreInfo2.innerHTML="Zwiń";
+    setTimeout(function(){
+    const checky2= $('.btn2').offset().top;
+    const checkyMargin2 = checky2 -150;
+    window.scrollTo(0,checkyMargin2);
+}, 300);  
+}
+    else {moreInfo2.innerHTML="Więcej o nas"}
 })
 
 //ACCORDION\
 $(document).ready(function(){
         // Add minus icon for collapse element which is open by default
         $(".collapse.show").each(function(){
-          $(this).prev(".card-header").find(".fa").addClass("fa-caret-down").removeClass("fa-caret-up");
+          $(this).prev(".card-header").find(".fa").addClass("fa-caret-up").removeClass("fa-caret-down");
         });
         
         // Toggle plus minus icon on show hide of collapse element
         $(".collapse").on('show.bs.collapse', function(){
-          $(this).prev(".card-header").find(".fa").removeClass("fa-caret-up").addClass("fa-caret-down");
-        }).on('hide.bs.collapse', function(){
           $(this).prev(".card-header").find(".fa").removeClass("fa-caret-down").addClass("fa-caret-up");
+        }).on('hide.bs.collapse', function(){
+          $(this).prev(".card-header").find(".fa").removeClass("fa-caret-up").addClass("fa-caret-down");
         });
     });
 
