@@ -2,18 +2,11 @@
 $('body').scrollspy({ target: '#navbar-example', offset:300 });
 
 //Usunięcie defektu skaczącego widoku na mobile//
-// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-let vh = window.innerHeight * 0.01;
-
-// Then we set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-
 // We listen to the resize event
 window.addEventListener('resize', () => {
-
-    // We execute the same script as before
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
 //Changing hamburger icon
@@ -67,30 +60,58 @@ $( document ).on( 'keydown', function ( e ) {
   }
 });
 // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-window.onscroll = function() {scrollFunction()};
+function naviAnimation() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){
-    document.querySelector(".navbar").style.height = "16vh";
+  if ((document.body.scrollTop > 80 || document.documentElement.scrollTop > 80)&(window.matchMedia("(max-width:1199px)").matches)){
+    document.querySelector(".navbar").style.height = "18vh";
     //document.querySelector("#navbar-example").style.top="16vh";
     document.querySelector(".navbar").style.backgroundColor="white";
     let che = document.querySelectorAll(".animated-icon2 span");
     [...che].forEach((chee)=>{chee.style.backgroundColor="#084772"});
+    let itemy =document.querySelectorAll(".navbar-nav .nav-item .nav-link");
+    [...itemy].forEach((item)=>{item.style.color="rgba(0,0,0,0.8)"});
     document.querySelector(".logo").style.left="5vw";
     document.querySelector(".logo").style.transform="translate(0,-50%)";
     document.querySelector(".logo").style.transition="all 0.3s";
-  } else {
-    document.querySelector(".navbar").style.height = "20vh";
+  } else if ((document.body.scrollTop < 80 || document.documentElement.scrollTop < 80)&(window.matchMedia("(max-width:1199px)").matches)) {
+    document.querySelector(".navbar").style.height = "21vh";
     //document.querySelector("#navbar-example").style.top="20vh";
     document.querySelector(".navbar").style.backgroundColor="transparent";
     let che = document.querySelectorAll(".animated-icon2 span");
     [...che].forEach((chee)=>{chee.style.backgroundColor="white"});
+    let itemy =document.querySelectorAll(".navbar-nav .nav-item .nav-link");
+    [...itemy].forEach((item)=>{item.style.color="rgba(0,0,0,0.8)"});
+    document.querySelector(".logo").style.left="50vw";
+    document.querySelector(".logo").style.transform="translate(-50%,-50%)";
+    document.querySelector(".logo").style.transition="all 0.3s";
+  }
+  else if ((document.body.scrollTop > 80 || document.documentElement.scrollTop > 80)&(window.matchMedia("(min-width:1200px)").matches)) {
+    document.querySelector(".navbar").style.height = "100vh";
+    document.querySelector(".navbar").style.backgroundColor="white";
+    document.querySelector("#navbar-example.collapse").style.alignItems="center";
+    let itemy =document.querySelectorAll(".navbar-nav .nav-item .nav-link");
+    [...itemy].forEach((item)=>{item.style.color="rgba(0,0,0)"});
+    document.querySelector(".logo").style.left="3vw";
+    document.querySelector(".logo").style.transform="translate(0,-50%)";
+    document.querySelector(".logo").style.transition="all 0.3s";
+  }
+  else if ((document.body.scrollTop < 80 || document.documentElement.scrollTop < 80)&(window.matchMedia("(min-width:1200px)").matches)) {
+    document.querySelector(".navbar").style.height = "20vh";
+    //document.querySelector("#navbar-example").style.top="20vh";
+    document.querySelector(".navbar").style.backgroundColor="transparent";
+    document.querySelector("#navbar-example.collapse").style.alignItems="flex-start";
+    let itemy =document.querySelectorAll(".navbar-nav .nav-item .nav-link");
+    [...itemy].forEach((item)=>{item.style.color="rgba(256,256,256,0.8)"});
     document.querySelector(".logo").style.left="50vw";
     document.querySelector(".logo").style.transform="translate(-50%,-50%)";
     document.querySelector(".logo").style.transition="all 0.3s";
   }
 }
 
+  window.addEventListener("load", naviAnimation,);
+  window.addEventListener("resize", naviAnimation,);
+  window.addEventListener("scroll", naviAnimation,);
 //efekt zanikania zdjęcia//
   //zmienne globalne wykorzystywane we wszystkich projektach ponizej//
   const $doc = $(document);/*pozwala stosować jquery*/
