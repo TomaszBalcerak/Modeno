@@ -67,6 +67,7 @@ function scrollFunction() {
     document.querySelector(".navbar").style.height = "18vh";
     //document.querySelector("#navbar-example").style.top="16vh";
     document.querySelector(".navbar").style.backgroundColor="white";
+    document.querySelector(".header").style.boxShadow="0px 0px 0px black";
     let che = document.querySelectorAll(".animated-icon2 span");
     [...che].forEach((chee)=>{chee.style.backgroundColor="#084772"});
     let itemy =document.querySelectorAll(".navbar-nav .nav-item .nav-link");
@@ -78,6 +79,7 @@ function scrollFunction() {
     document.querySelector(".navbar").style.height = "21vh";
     //document.querySelector("#navbar-example").style.top="20vh";
     document.querySelector(".navbar").style.backgroundColor="transparent";
+    document.querySelector(".header").style.boxShadow="0px 0px 0px black";
     let che = document.querySelectorAll(".animated-icon2 span");
     [...che].forEach((chee)=>{chee.style.backgroundColor="white"});
     let itemy =document.querySelectorAll(".navbar-nav .nav-item .nav-link");
@@ -89,6 +91,7 @@ function scrollFunction() {
   else if ((document.body.scrollTop > 80 || document.documentElement.scrollTop > 80)&(window.matchMedia("(min-width:1200px)").matches)) {
     document.querySelector(".navbar").style.height = "100vh";
     document.querySelector(".navbar").style.backgroundColor="white";
+    document.querySelector(".header").style.boxShadow="0px 0px 2px black";
     document.querySelector("#navbar-example.collapse").style.alignItems="center";
     let itemy =document.querySelectorAll(".navbar-nav .nav-item .nav-link");
     [...itemy].forEach((item)=>{item.style.color="rgba(0,0,0)"});
@@ -100,6 +103,7 @@ function scrollFunction() {
     document.querySelector(".navbar").style.height = "20vh";
     //document.querySelector("#navbar-example").style.top="20vh";
     document.querySelector(".navbar").style.backgroundColor="transparent";
+    document.querySelector(".header").style.boxShadow="0px 0px 0px black";
     document.querySelector("#navbar-example.collapse").style.alignItems="flex-start";
     let itemy =document.querySelectorAll(".navbar-nav .nav-item .nav-link");
     [...itemy].forEach((item)=>{item.style.color="rgba(256,256,256,0.8)"});

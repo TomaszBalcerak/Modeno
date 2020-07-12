@@ -12,7 +12,6 @@ body{
 	/*usuwam bo powoduje, że po zamknięciu galerii podbija na samą górę strony. Usunięcie nie powoduje chyba żadnego defektu- pozostałość po stronie LagodiGarda- próba usunięcia jumping scrolla na mobile
 	*/height: calc(var(--vh, 1vh) * 100);
 	min-height: -webkit-fill-available;
-	
 	transition:1s;
 	position:relative;
 	font-family:'Roboto', sans-serif;
@@ -831,9 +830,6 @@ ul .offerlist:last-child{
 	width:100%;
 	position:relative;
 }
-#nanogallery2{
-	margin:0 20px;
-}
 .nGY2 .nGY2GThumbnailIconsFullThumbnail{
 	font-size:1.2em;
 	top:90%;
@@ -973,7 +969,10 @@ footer > a > p{
 	width:14vw;
 }
 #navbar-example{
-	width:50vw;
+	width:40vw;
+}
+#navbar-example.show{
+	margin-left:60vw;
 }
 a.btn.btn-primary{
 	width:30vw;
@@ -994,10 +993,8 @@ a.btn.btn-primary{
 	margin-left: 10px;
 }
 .TechnicalOpinionImg{
-	width:50vw;
-	height:60vh;
-	margin-left:15vw;
-	border-radius: 50%;
+	width:300px;
+	height:300px;
 }
 }
 @media all and (min-width:992px){
@@ -1006,6 +1003,9 @@ a.btn.btn-primary{
 }
 #navbar-example{
 	width:35vw;
+}
+#navbar-example.show{
+	margin-left:65vw;
 }
 a.btn.btn-primary{
 	width:20vw;
@@ -1037,8 +1037,9 @@ a.btn.btn-primary{
 	transform:translate(-50%, -50%);
 }
 .header{
-	width:30vw;
+	width:20vw;
 	height:100vh;
+	box-shadow:0px 0px 0px black;
 }
 .navbar{
 	width:20vw;
@@ -1107,11 +1108,51 @@ a.btn.btn-primary{
 	transform:translate(-50%, -50%) rotate(45deg);
 	mix-blend-mode: difference;
 }
-.descriptionList{
+#Home::before{
+	left:-40vw;
+	height:200px;
+}
+#About, #InvestmentPreparation,#InvestmentRepresentation, #InvestmentSupervision, #InvestmentCoordination, #BuildingInspection, #TechnicalOpinion, #TechnicalConsultancy, #Realizations, #Contact, footer {
+	position:relative;
+	left:20vw;
+	width:80vw;
 	display:flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	margin-top:15px;
+	align-items: center;
+}
+.heading{
+	width:80vw;
+}
+.textContainer, .timelineContainerDescription, .horsecontainer {
+	width:70vw;
+}
+.main-timeline2{
+	padding:30px 20px 0px 20px;
+}
+#InvestmentRepresentation{
+	z-index:2;
+}
+#InvestmentSupervision{
+	z-index:1;
+}
+#accordion{
+	width:70vw;
+	overflow: hidden;
+}
+#accordion .textContainer .text{
+	width:90%;
+}
+#accordion:after{
+	content:"";
+	position:absolute;
+	top:0;
+	left:0px;
+	width:100%;
+	height:150%;
+	padding:1px;
+	background-image: url(img/galery/photo545.jpeg);
+	background-size: cover;
+	background-position: bottom;
+	z-index:0;
 }
 .card-columns{
 	column-count:2;
@@ -1119,13 +1160,57 @@ a.btn.btn-primary{
 }
 .card-columns2{
 	column-count:1;
-	width:50%;
+}
+.nathan{
+	margin:20px 0px 0px 0px;
+	width:80vw;
+	height:100vh;
+	position:sticky;
+	top:-20px;
+	transform:translateZ(20px);
+}
+.stickytext{
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
+	line-height: 1.7;
+	font-size:18px;
+}
+.descriptionList{
+	display:flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top:15px;
+}
+#TechnicalOpinion{
+	z-index:1;
+	justify-content: left;
+	position:relative;
+}
+#TechnicalOpinion .textContainer{
+	width:40%;
+	margin-right:20vw;
+}
+#TechnicalOpinion .horsecontainer{
+	justify-content: left;
+	width:40%;
+	margin-bottom: 40px;
+}
+#TechnicalOpinion .descriptionList{
+	margin-left:2vw;
 }
 .TechnicalOpinionImg{
-	width:40%;
-	height:100%;
+	width:50vw;
+	height:inherit;
+	position:absolute;
+	top:12vh;
+	right:-30px;
+	margin:30px 0px 0px 30px;
 	border-radius:0px;
-	margin-left:0px;
+	z-index: 0;
+}
+#TechnicalConsultancy{
+	z-index:1;
 }
 .btn{
 	width:20vw;
